@@ -44,6 +44,21 @@ def trajectory (x0,y0,v,theta,g = 9.8, npts = 1000):
     0.5g t^2 - vsin(theta) t - y0 = 0
     t_final = v/g sin(theta) + sqrt((v/g)^2 sin^2(theta) + 2 y0/g)
     """
+    
+    vx = math.cos(np.deg2rad(theta) * v
+   
+    vy = math.sin(np.deg2rad(theta) * v
+               
+    tfinal = (vy(0)/g)+ math.sqrt((vy(0)/g)^2 - 2 *(y0/g))
+    
+    t = np.linspace(0,tfinal, num = 1000, endpoint=true) 
+    
+    x = x0 + vx * t
+    
+    y = y0 + vy * t - .5gt^2
+    
+    return (x,y)
+                  
   
 
 def firstInBox (x,y,box):
@@ -65,6 +80,18 @@ def firstInBox (x,y,box):
         y[j] is in [bottom,top]
         -1 if the line x,y does not go through the box
     """
+    a = 0
+    while a < x:
+        a +=1
+    if a >= x:
+        break
+    
+    if box[0] < x[j] < box[1] and box[2] y[j] < box[3]:
+        
+        return j
+    
+    
+    
 
 
     
@@ -96,7 +123,15 @@ def tankShot (targetBox, obstacleBox, x0, y0, v, theta, g = 9.8):
     obstacle box
     draws the truncated trajectory in current plot window
     """
+    x,y = trajectory
     
+    if trajectory < 0
+    plt.plot(x,y))
+    
+    if firstInBox >= 1:
+        plt.plot(x,y))
+        x,y = endTrajectory
+        return x,y
 
 
 def drawBoard (tank1box, tank2box, obstacleBox, playerNum):
@@ -115,7 +150,14 @@ def drawBoard (tank1box, tank2box, obstacleBox, playerNum):
  
     """    
     #your code here
-    
+    plt. clf ()
+    plt.figure()
+    plt.plot(tank1box)
+    plt.plot(tank2box)
+    plt.plot(obstacleBox)
+    xlim((0, 100))
+    ylim((0, 100))
+    plt.show()
     showWindow() #this makes the figure window show up
 
 def oneTurn (tank1box, tank2box, obstacleBox, playerNum, g = 9.8):   
@@ -143,6 +185,31 @@ def oneTurn (tank1box, tank2box, obstacleBox, playerNum, g = 9.8):
     displays trajectory (shot originates from center of tank)
     returns 0 for miss, 1 or 2 for victory
     """        
+    plt.clf ()
+    plt.plot(drawBoard)
+    
+
+    
+    if playerNum = 1:
+        x0,y0 = tank1box and target = tank2box
+        
+    if playerNum = 0:
+        x0,y0 = tank2box and x,y = tank1box
+        
+        break
+        
+    plt.plot(tankShot)
+    
+    if playernum = 1
+    
+        print("playerNum WINNER")
+    if playernum = 0:
+        
+        return 0
+    
+        
+    
+
 
     
 
@@ -161,6 +228,8 @@ def playGame(tank1box, tank2box, obstacleBox, g = 9.8):
      g : float 
         accel due to gravity (default 9.8)
     """
+    
+    if player.playerNum 
     
     
         
